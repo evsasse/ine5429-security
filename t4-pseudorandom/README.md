@@ -15,7 +15,7 @@ entradas dos algoritmos.
   
 - Linear congruential generator (**LCG**)
 
-  ![Formula lgc](https://wikimedia.org/api/rest_v1/media/math/render/svg/70a1708a4432a26fa32571271104f9caabdefc1c)
+  ![Formula lgc](http://i.imgur.com/Kq0qnb7.png)
   
   Onde, **m** e **x** são relativamente primos;
   **a - 1** é divisivel por todos os fatores de **m**;
@@ -24,7 +24,7 @@ entradas dos algoritmos.
   
 - Park–Miller random number generator (**PM**)
 
-  ![Formula pm](https://wikimedia.org/api/rest_v1/media/math/render/svg/2b963c8f17e4030a9594bd39a9f528f7b64ddd4f)
+  ![Formula pm](http://i.imgur.com/UgqsOHZ.png)
   
   Onde, **n** é um número primo, e **g** escolhido como uma raiz primitiva de **n**.
   E a seed(**x<sub>0</sub>**) é co-primo de **n**.
