@@ -37,6 +37,8 @@ Onde gero uma sequência de **B** números(cada chamada de "__next"),
 e utilizo cada um deles para se tornar apenas um bit
 na saída real do algoritmo. (Realizado na função "next").
 
+## Tempos de execução
+
 | Algoritmo | Tamanho do Número | Tempo para gerar |
 | --- | --- | --- |
 | BBS |  40  |  7.323980331420898e-05 s |
@@ -83,7 +85,137 @@ na saída real do algoritmo. (Realizado na função "next").
 | LCG |  4096  |  0.00937819004058838 s |
 | PM |  4096  |  0.00922947883605957 s |
 
+## Código
+
+**__main__.py**
+```
+from .prngs.blum_blum_shub import BBS
+from .prngs.park_miller import PM
+from .prngs.linear_congruential import LCG
+
+from .timer_decorator import timer
+
+
+SEED = 2
+
+P_PRIME = 3141592653589771
+Q_PRIME = 2718281828459051
+
+P_PRIMITIVE_ROOT = 3
+
+BITS = [40, 56, 80, 128, 168, 224, 256, 512, 1024, 2048, 4096]
+REPS = 100
+
+
+def main():
+    print('| Algoritmo | Tamanho do Número | Tempo para gerar |')
+    print('| --- | --- | --- |')
+    for bits in BITS:
+        bbs = BBS(SEED, P_PRIME, Q_PRIME, bits)
+        # random_bbs_numbers = [bbs.next(), bbs.next()]
+        lcg = LCG(SEED, P_PRIME, Q_PRIME, bits)
+        # random_lcg_numbers = [lcg.next(), lcg.next()]
+        pm = PM(SEED, P_PRIME, P_PRIMITIVE_ROOT, bits)
+        # random_pm_numbers = [pm.next(), pm.next()]
+
+        print('| BBS | ', bits, ' | ', repeat_next(bbs, REPS) / REPS, 's |')
+        print('| LCG | ', bits, ' | ', repeat_next(bbs, REPS) / REPS, 's |')
+        print('| PM | ', bits, ' | ', repeat_next(bbs, REPS) / REPS, 's |')
+
+        print('| --- | --- | --- |')
+
+
+@timer
+def repeat_next(algo, times):
+    for _ in range(times):
+        algo.next()
+
+if __name__ == "__main__":
+    main()
+```
+
+**timer_decorator.py**
+```
+import time
+
+
+def timer(func):
+    def function_timer(*args, **kwargs):
+        start = time.time()
+        func(*args, **kwargs)
+        end = time.time()
+        return end - start
+    return function_timer
+```
+
+**prngs/blum_blum_shub.py**
+```
+from .prng import PRNG
+
+class BBS(PRNG):
+	def __init__(self, seed, p, q, bits):
+		self.x = seed
+		self.m = p * q
+		self.bits = bits
+
+	def _PRNG__next(self):
+		self.x = pow(self.x, 2) % self.m
+		return self.x
+ ```
+ 
+ **prngs/linear_congruential.py**
+```
+from .prng import PRNG
+
+class LCG(PRNG):
+	def __init__(self, seed, m, c, bits):
+		self.x = seed
+		self.m = m
+		self.a = c
+		self.c = c
+		self.bits = bits
+
+	def _PRNG__next(self):
+		self.x = (self.a * self.x + self.c) % self.m
+		return self.x
+ ```
+ 
+**prngs/linear_congruential.py**
+```
+from .prng import PRNG
+
+class PM(PRNG):
+	def __init__(self, seed, n, g, bits):
+		self.x = seed
+		self.n = n
+		self.g = g
+		self.bits = bits
+
+	def _PRNG__next(self):
+		self.x = (self.g * self.x) % self.n
+		return self.x
+ ```
+ 
+**prngs/prng.py**
+```
+class PRNG:
+	def next(self):
+		out = 0
+
+		for _ in range(self.bits):
+			out = (out << 1) | self.__selection(self.__next())
+
+		return out
+		
+	def __selection(self, number):
+		# least significant bit
+		return number & 1
+ ```
+ 
+
 ## Referências
 https://en.wikipedia.org/wiki/Blum_Blum_Shub
 https://en.wikipedia.org/wiki/Lehmer_random_number_generator
 https://en.wikipedia.org/wiki/Linear_congruential_generator
+
+## Disponivel em: https://github.com/evsasse/ine5429-security
