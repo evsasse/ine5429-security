@@ -1,13 +1,12 @@
 import random
 import sympy
 
-from prime_number_generator import PrimeNumberGenerator
+from .prime_number_generator import PrimeNumberGenerator
 
 
 class Lucas(PrimeNumberGenerator):
     @classmethod
     def test(cls, n, k=30):
-        print('testing', n)
         assert(n > 1)
 
         if n == 2 or n == 3:

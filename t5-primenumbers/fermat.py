@@ -1,6 +1,6 @@
 import random
 
-from prime_number_generator import PrimeNumberGenerator
+from .prime_number_generator import PrimeNumberGenerator
 
 class Fermat(PrimeNumberGenerator):
     @staticmethod
