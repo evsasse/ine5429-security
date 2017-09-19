@@ -20,3 +20,22 @@ de modo a proteger os compradores e os vendedores. Com um sistema peer-to-peer
 que gera a provas criptográficas da ordem das transações, temos segurança
 enquanto os número de nodos honestos na rede é maior que tamanho de cada grupo 
 de nodos que estão cooperando para atacar.
+
+
+## 2. Transações
+
+Cada moeda digital é composta de uma corrente de assinaturas digitais. Em uma
+transação o remetente assina(com sua chave privada) um hash da última
+transação(que tem a mesmo formato do resultado final dessa) e a
+chave pública do destinatário e adiciona isso ao final da corrente da moeda.
+Assim podemos verificar a cadeia de posse dessa moeda.
+
+Existe a possibilidade de que o remetente tenha feito esse processo para dois
+destinatários diferentes, e o destinatário não teria como saber disso apenas
+vendo a cadeia de posse que lhe foi entregue. Para combater, isso sem requerer
+uma autoridade confiável, as transações são publicamente anunciadas e os
+participantes da rede acabam decidindo "chegou primeiro", acordando em qual
+o histórico de transações correto. O destinatário então tem que confirmar qual
+foi o histórico acordado para confirmar que a transação dada pelo remetente
+foi oficializada.
+
