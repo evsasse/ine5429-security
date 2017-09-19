@@ -39,3 +39,31 @@ o histórico de transações correto. O destinatário então tem que confirmar q
 foi o histórico acordado para confirmar que a transação dada pelo remetente
 foi oficializada.
 
+## 3. Servidor de Timestamp
+
+É realizado um hash do timestamp anterior junto ao um bloco de items, o
+resultado desse hash é o novo timestamp, que é então publicado, provando que
+em algum momento as informações daquele bloco foram confirmadas pois essa
+seria a "única" possibilidade, de histórico de transações, que levaria ao
+timestamp atual.
+
+## 4. Prova-de-trabalho
+
+Fazemos o hash da prova-de-trabalho anterior junto com cada transação que estará
+contida nesse bloco e um número qualquer que será mudado até obtermos o resultado
+que procuramos. O resultado desejado é que o hash resultante tenha uma certo número
+de zeros como primeiros bits, para alcançar isso temos o número variável dentro do
+bloco. Se qualquer coisa dentro do bloco mudar, o hash resultante é completamente
+diferente, invalidando o trabalho anterior.
+
+Essa prova-de-trabalho é uma maneira de confirmar que uma certa quantidade de poder
+de processamento foi gasto, quanto maior a sua capacidade de processamento então
+maior o seu "poder de voto" na corrente. Qualquer poder de processamento menor que
+chegasse primeiro no resultado para uma transação falsa na corrente iria ser acabar
+ultrapassado pelo tamanho da corrente dos nodos honestos nas transações subsequentes.
+
+E a dificuldade, estabelecida pelo número de zeros que o hash resultante deve começar,
+aumenta de forma a obedecer uma média móvel. Mantendo o número de blocos/hora estável.
+
+## 5. Rede
+
