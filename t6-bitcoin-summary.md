@@ -59,11 +59,18 @@ diferente, invalidando o trabalho anterior.
 Essa prova-de-trabalho é uma maneira de confirmar que uma certa quantidade de poder
 de processamento foi gasto, quanto maior a sua capacidade de processamento então
 maior o seu "poder de voto" na corrente. Qualquer poder de processamento menor que
-chegasse primeiro no resultado para uma transação falsa na corrente iria ser acabar
-ultrapassado pelo tamanho da corrente dos nodos honestos nas transações subsequentes.
+chegasse primeiro no resultado para por um bloco falso na corrente iria ser acabar
+ultrapassado pelo tamanho da corrente dos nodos honestos, que não aceitariam esse
+bloco falso, nos blocos subsequentes.
 
 E a dificuldade, estabelecida pelo número de zeros que o hash resultante deve começar,
 aumenta de forma a obedecer uma média móvel. Mantendo o número de blocos/hora estável.
 
 ## 5. Rede
 
+1. Novas transações são publicadas para os outros nodos.
+2. Cada nodo coleta as transações que recebe em um bloco.
+3. Cada nodo tentar realizar a prova-de-trabalho com o seu bloco.
+4. Quando consegue, envia aos outros nodos o seu bloco.
+5. Os outros nodos aceitam o bloco se todas a transações são válidas.
+6. Começam a trabalhar no próximo bloco, com hash do novo bloco.
