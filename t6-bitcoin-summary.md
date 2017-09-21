@@ -134,3 +134,12 @@ seus donos. Desse modo as transações podem ser ligadas umas as outras, sem o c
 das identidades. Para aumentar o nível de segurança é interessante que sejam gerados novas
 chaves para cada transação, quando possível. Mas existe o risco de que caso a identidade
 de alguma chave pública vaze revela outras transações realizadas pelo dono daquela chave.
+
+
+## 11. Cálculos
+
+Podemos demonstrar matematicamente, e relacionando com outros problemas já conhecidos como
+Gambler's Ruin(Ruina do apostador), que chance de um atacante com poder computacional menor
+que o dos nodos honestos conseguir continuar a aumentar a sua corrente falsificada com
+velocidade maior que a corrente honesta decaí exponencialmente. Tornando esse ataque
+inofensível ao longo prazo.
