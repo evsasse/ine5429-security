@@ -1,6 +1,6 @@
-# Bitcoin: sistema eletrônico de dinheiro peer-to-peer
+# Bitcoin: sistema eletrônico de moeda peer-to-peer
 
-Uma solução para transações de dinheiro eletrônico que evita ter
+Uma solução para transações de moeda eletrônica que evita ter
 que passar por uma instituição ou terceiro confiável.
 Hashes das transações são adicionadas em uma corrente,
 e a maior corrente é sempre formada pelo maior poder de processamento.
@@ -143,3 +143,14 @@ Gambler's Ruin(Ruina do apostador), que chance de um atacante com poder computac
 que o dos nodos honestos conseguir continuar a aumentar a sua corrente falsificada com
 velocidade maior que a corrente honesta decaí exponencialmente. Tornando esse ataque
 inofensível ao longo prazo.
+
+## 12. Conclusões
+
+Foi proposta uma solução de moeda eletrônica, baseada em outras propostas semelhantes já
+existentes, que tem soluciona problemas de fraude. Com uma rede simples, e pouca coordenação.
+Os nodos "votam" com o seu poder computacional, rejeitando correntes inválidas, e sendo
+incentivados a "votar" ao receberem moedas da própria economia, ao confirmarem um novo bloco.
+
+## Referências
+
+https://bitcoin.org/bitcoin.pdf - Bitcoin: A Peer-to-Peer Electronic Cash System
