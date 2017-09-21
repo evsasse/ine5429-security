@@ -118,3 +118,19 @@ histórico completo das transações, apenas perguntar para a rede. Mas no caso 
 onde a rede é controlada por um grande número de nodos que podem maleficamente confirmar
 uma transação, é interessante que o nodo tenha um histórico completo, podendo confirmar
 a transação por si mesmo.
+
+
+## 9. Combinando e dividindo valores
+
+Para permitir que valores sejam combinados e divididos uma transação permite várias entradas
+e até duas saídas. As várias entradas representam os vários valores que serão combinados. E
+uma das saídas representa o valor que será pago ao destinatário, enquanto o outro é o valor
+de troco devolvido ao remetente.
+
+## 10. Privacidade
+
+A privacidade pode ser mantida simplesmente não associando chaves públicas à identidade de
+seus donos. Desse modo as transações podem ser ligadas umas as outras, sem o conhecimento
+das identidades. Para aumentar o nível de segurança é interessante que sejam gerados novas
+chaves para cada transação, quando possível. Mas existe o risco de que caso a identidade
+de alguma chave pública vaze revela outras transações realizadas pelo dono daquela chave.
