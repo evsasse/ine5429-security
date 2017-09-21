@@ -96,3 +96,25 @@ mecanismo para haver incentivos mesmo que não haja mais produção de novas moe
 Esse mecanismo também incentiva possíveis atacantes, com poder computacional grande, a
 tentar criar blocos honestamente ao invés de destruir a economia, já que ele estaria
 produzindo uma grande quantidade de moedas.
+
+## 7. Recuperando espaço de armazenamento
+
+Podemos economizar espaço de armazenamento eliminando os dados os dados de transações
+muito antigas e armazenando apenas os hash delas, e futuramente armazendo apenas o
+hash de um conjunto de hashes de transações... armazenando no final apenas o cabeçalho
+do bloco com o hash de hashes ... de transações.
+
+## 8. Verificação de pagamento simplificada
+
+A verificação de pagamento consiste de verificar que a transação que o remetente assinou
+contendo a chave pública do destinatário foi confirmada em um bloco da maior corrente.
+Pedindo os dados da corrente para outros nodos é confirmado qual a maior corrente, e
+buscando a transação nela é verificado se ela foi aceita pela rede. Cada bloco após ao
+bloco da transação confirma ainda mais que a transação foi aceita, e não foi apenas parte
+de uma corrente temporariamente maior.
+
+Então no caso mais simples o nodo que quer confirmar uma transação não precisa ter um
+histórico completo das transações, apenas perguntar para a rede. Mas no caso de um ataque
+onde a rede é controlada por um grande número de nodos que podem maleficamente confirmar
+uma transação, é interessante que o nodo tenha um histórico completo, podendo confirmar
+a transação por si mesmo.
