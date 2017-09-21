@@ -70,14 +70,14 @@ aumenta de forma a obedecer uma média móvel. Mantendo o número de blocos/hora
 
 1. Novas transações são publicadas para os outros nodos.
 2. Cada nodo coleta as transações que recebe em um bloco.
-  - Caso uma transação não chegar em todos os nodos não há problema, em algum
+    - Caso uma transação não chegar em todos os nodos não há problema, em algum
   momento ela será confirmada por um bloco feito por algum dos nodos que recebeu,
   e será sincronizada aos outros nodos.
 3. Cada nodo tentar realizar a prova-de-trabalho com o seu bloco.
 4. Quando consegue, envia aos outros nodos o seu bloco.
 5. Os outros nodos aceitam o bloco se todas a transações são válidas.
-  - Podem ser recebido mais de um novo bloco com prova-de-trabalho válida,
+    - Podem ser recebido mais de um novo bloco com prova-de-trabalho válida,
   nesse caso continua se trabalhando com o bloco que foi recebido primeiro.
-  - Caso seja recebido um novo bloco que tenha sido originado de uma corrente
+    - Caso seja recebido um novo bloco que tenha sido originado de uma corrente
   maior, diferente e válida, migra para a nova corrente mais longa.
 6. Começam a trabalhar no próximo bloco, com hash do novo bloco recebido/feito.
