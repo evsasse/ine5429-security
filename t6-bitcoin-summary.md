@@ -70,9 +70,9 @@ aumenta de forma a obedecer uma média móvel. Mantendo o número de blocos/hora
 
 1. Novas transações são publicadas para os outros nodos.
 2. Cada nodo coleta as transações que recebe em um bloco.
-    - Caso uma transação não chegar em todos os nodos não há problema, em algum
-  momento ela será confirmada por um bloco feito por algum dos nodos que recebeu,
-  e será sincronizada aos outros nodos.
+    - Caso alguma transação não chegar em todos os nodos não há problema, em algum
+  momento ela será confirmada por um bloco feito por algum dos nodos que recebeu ela,
+  e será ela sincronizada aos outros nodos.
 3. Cada nodo tentar realizar a prova-de-trabalho com o seu bloco.
 4. Quando consegue, envia aos outros nodos o seu bloco.
 5. Os outros nodos aceitam o bloco se todas a transações são válidas.
@@ -81,3 +81,18 @@ aumenta de forma a obedecer uma média móvel. Mantendo o número de blocos/hora
     - Caso seja recebido um novo bloco que tenha sido originado de uma corrente
   maior, diferente e válida, migra para a nova corrente mais longa.
 6. Começam a trabalhar no próximo bloco, com hash do novo bloco recebido/feito.
+
+
+## 6. Incentivo
+
+Por convenção a primeira transação de um bloco inicializa uma nova moeda que pertencerá
+ao quem está tentado criar o bloco. Desse modo novas moedas são adicionadas na economia
+e existe um incentivo para que os nodos gastem seu poder computacional.
+
+E também podem haver custos de transação embutidos no sistema, de cada transação de um
+bloco é extraido uma taxa é dada ao nodo que criar o novo bloco. Dessa maneira há um
+mecanismo para haver incentivos mesmo que não haja mais produção de novas moedas.
+
+Esse mecanismo também incentiva possíveis atacantes, com poder computacional grande, a
+tentar criar blocos honestamente ao invés de destruir a economia, já que ele estaria
+produzindo uma grande quantidade de moedas.
